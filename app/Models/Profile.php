@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    public function posts(){
+    public function profile(){
         return $this->hasMany('App\Post');
+        return $this->belongsTo('App\User');
     }
     
     use HasFactory;

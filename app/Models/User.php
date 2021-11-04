@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function users(){
+        return $this->hasOne('App\Profile');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
