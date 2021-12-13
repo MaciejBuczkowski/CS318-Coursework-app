@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function users(){
+    public function profile(){
         return $this->hasOne('App\Profile');
     }
 

@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function post(){
+    public function profile(){
         return $this->belongsTo('App\Profile');
+    }
+
+    public function comments(){
         return $this->hasMany('App\Comment');
     }
 
