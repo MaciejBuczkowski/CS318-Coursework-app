@@ -19,7 +19,8 @@ class PostFactory extends Factory
         return [
             //
             'profile_id' => $this->faker->numberBetween(1,5), 
-            'content' => $this->faker->sentence(),
+            'title' => $this->faker->sentence(),
+            'post_content' => $this->faker->sentence(),
 
         ];
     }
