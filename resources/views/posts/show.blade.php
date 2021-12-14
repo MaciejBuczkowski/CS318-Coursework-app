@@ -12,4 +12,12 @@
 
     </ul>
 
+    <form method='POST' action='{{route("posts.destroy", [$post])}}'>
+        @csrf
+        @method('DELETE')
+        <button type='submit'>Delete post</button>
+    </form>
+
+    <button type='submit' href="{{route('posts.edit',['post' => $post])}}">Edit</button>
+
 @endsection

@@ -29,5 +29,13 @@ Route::get('/posts/create', [PostController::class,'create'])->name('posts.creat
 Route::post('/posts', [PostController::class,'store'])->name('posts.store');
 //show individual post
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+//edit post
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{post}', [PostController::class,'update'])->name('posts.update');
+//delete post
+Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy');
+
+
+
 
 require __DIR__.'/auth.php';
