@@ -20,4 +20,18 @@
 
     <button type='submit' href="{{route('posts.edit',['post' => $post])}}">Edit</button>
 
+    <form method="post" action="{{ route('comment.store',['post' => $post]) }}">
+        @csrf
+        
+        <input type="text" name="content"/>
+        <input type="hidden" name="post_id" value="{{ $post->id }}" />
+        <input type="submit" value="Add Comment" />
+                
+    </form>
+
+    @foreach({{route('comment.show',['id' => $post])}} as $comment)
+        <strong>{{$comment->profile_id}}</strong>
+        <p>{{$comment->content}}</p>
+    @endforeach
+
 @endsection

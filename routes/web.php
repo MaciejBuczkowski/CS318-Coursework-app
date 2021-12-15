@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,9 @@ Route::put('/posts/{post}', [PostController::class,'update'])->name('posts.updat
 //delete post
 Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy');
 
-
-
+//store comment
+Route::post('/posts/{post}',[CommentController::class, 'store'])->name('comment.store');
+//shows comments for the post
+Route::get('/posts/{post}',[CommentController::class, 'show'])->name('comment.show');
 
 require __DIR__.'/auth.php';

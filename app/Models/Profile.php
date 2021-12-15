@@ -8,11 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     public function posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Models\Post');
     }
     
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function comments(){
+        return $this->hasMany('App\Models\Comment');
     }
 
     use HasFactory;

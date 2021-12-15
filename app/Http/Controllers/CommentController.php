@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
+use App\Models\Post;
+use App\Model\Profile;
 
 class CommentController extends Controller
 {
@@ -35,6 +38,15 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+        $c = new Comment;
+        $c->post_id = $request->get('post_id');
+        $c->profile_id = 1;
+        $c->content = $request->get('content');
+        $c->save();
+
+        session()->flash('message', 'Comment submitted');
+
+        return redirect()->route('posts.show',['id' => $request->get('post_id')]);
     }
 
     /**
@@ -46,6 +58,9 @@ class CommentController extends Controller
     public function show($id)
     {
         //
+        $comments = Comment::all($id->$post_id);
+
+        return $comments;
     }
 
     /**
