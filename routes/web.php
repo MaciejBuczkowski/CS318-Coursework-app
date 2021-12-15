@@ -38,7 +38,7 @@ Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.d
 
 //store comment
 Route::post('/posts/{post}',[CommentController::class, 'store'])->name('comment.store');
-//shows comments for the post
-Route::get('/posts/{post}',[CommentController::class, 'show'])->name('comment.show');
+//delete comment
+Route::delete('/posts/{id}',[CommentController::class, 'destroy'])->name('comment.destroy');
 
 require __DIR__.'/auth.php';

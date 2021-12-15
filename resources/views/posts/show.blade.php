@@ -29,9 +29,16 @@
                 
     </form>
 
-    @foreach({{route('comment.show',['id' => $post])}} as $comment)
+    @foreach($post->comments as $comment)
         <strong>{{$comment->profile_id}}</strong>
         <p>{{$comment->content}}</p>
+
+        <form method='POST' action='{{route("comment.destroy", [$comment])}}'>
+        @csrf    
+        @method('DELETE')
+            <button type='submit'>Delete comment</button>
+        </form>
     @endforeach
+
 
 @endsection

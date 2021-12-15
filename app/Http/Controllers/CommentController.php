@@ -58,9 +58,6 @@ class CommentController extends Controller
     public function show($id)
     {
         //
-        $comments = Comment::all($id->$post_id);
-
-        return $comments;
     }
 
     /**
@@ -92,8 +89,11 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
         //
+        $comment->delete();
+
+        return redirect()->route('posts.show',['id'=>$comment->get('post_id')]);
     }
 }
