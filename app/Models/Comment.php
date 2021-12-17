@@ -9,11 +9,11 @@ class Comment extends Model
 {
 
     public function post(){
-        return $this->belongsTo('App\Models\Post');
+        return $this->belongsTo(Post::class);
     }
 
     public function profile(){
-        return $this->belongsTo('App\Models\Profile');
+        return $this->belongsTo(Profile::class);
     }
 
     use HasFactory;

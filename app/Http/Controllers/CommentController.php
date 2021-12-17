@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Post;
-use App\Model\Profile;
+use App\Models\Profile;
 
 class CommentController extends Controller
 {
@@ -40,7 +40,7 @@ class CommentController extends Controller
         //
         $c = new Comment;
         $c->post_id = $request->get('post_id');
-        $c->profile_id = 1;
+        $c->profile_id = $request->user()->profile->id;
         $c->content = $request->get('content');
         $c->save();
 
@@ -92,8 +92,9 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+        $postid = $comment->post_id;
         $comment->delete();
 
-        return redirect()->route('posts.show',['id'=>$comment->get('post_id')]);
+        return redirect()->route('posts.show',['id'=>$postid]);
     }
 }

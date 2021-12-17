@@ -9,7 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+                    <h2>{{Auth::user()->name}}</h2>
+                    <p>{{Auth::user()->profile->date_of_birth}}</p>
+                    <p>{{Auth::user()->email}}</p>
+
+                    <form method='GET' action='{{route("posts.index")}}'>
+                        <input type='submit' value='Posts'>
+                    </form>
                 </div>
             </div>
         </div>

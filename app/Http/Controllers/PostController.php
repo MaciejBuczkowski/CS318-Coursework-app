@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view('posts.index',['posts' => $posts]);
     }
 
@@ -46,7 +46,7 @@ class PostController extends Controller
         ]);
 
         $p = new Post;
-        $p->profile_id = 1;
+        $p->profile_id = $request->user()->profile->id;
         $p->title = $validateData['title'];
         $p->post_content = $validateData['post_content'];
         $p->save();

@@ -15,6 +15,11 @@ class ProfileTableSeeder extends Seeder
     public function run()
     {
         //
+        $profile = new Profile;
+        $profile->user_id = 1;
+        $profile->date_of_birth = '2001-06-28';
+        $profile->save();
+
         $profiles = Profile::factory()->count(5)->create();
     }
 }

@@ -18,7 +18,7 @@ class ProfileFactory extends Factory
     {
         return [
             //
-            'name' => $this->faker->name(),
+            'user_id' => $this->faker->unique()->numberBetween(2,6), 
             'date_of_birth' => $this->faker->date('1990-01-01', '2020-12-31'),
         ];
     }
