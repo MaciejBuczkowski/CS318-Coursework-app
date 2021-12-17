@@ -133,7 +133,7 @@
 
         .comments{
             position:absolute;
-            bottom: 25%;
+            bottom: 20%;
             left: 50%;
             margin: -25px 0 0 -280px;
         }
